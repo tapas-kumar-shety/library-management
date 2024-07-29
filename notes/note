@@ -1,0 +1,19 @@
+
+DEPENDENCIES---
+npm i dotenv express express-ejs-layouts express-flash-messages express-session method-override mongoose
+
+express-flash-messages---
+Provides Express.js flash message middleware that work for rendering or redirecting.
+
+What is Express session?---
+express-session is a middleware module in Express. js that allows you to create sessions in your web application. It stores session data on the server side, using a variety of different storage options, and allows you to track the activity of a user across requests
+
+method-override middleware---
+The Method Overriding Middleware enables you to use the X-Http-Method-Override request header or the request body parameter _METHOD to override an incoming request's method. The middleware should be placed after the routing middleware has been added.
+
+.ENV---- inside this file we will save all the secret things that we want to hide from the user like user passwor etc
+
+
+  inside the .env file we will set the MONGODB_URI:MongoDB connection string coppied form the database
+
+  The string you store in  MONGODB_URI  is called a MongoDB connection string or MongoDB URI (Uniform Resource Identifier).
