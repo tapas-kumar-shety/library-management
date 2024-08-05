@@ -1,3 +1,31 @@
-*{
+/* *{
     background-color: rgb(139, 97, 97);
+} */
+
+body{
+    background-color: rgba(195, 209, 210, 0.269);
+    /* background-image: url("https://rukminim2.flixcart.com/image/850/1000/kksmikw0/wall-decoration/z/o/r/books-tree-medium-vinyl-wallstickers-65-cm-x-75-cm-1-57-sga-2411-original-imaezsgyrccphcve.jpeg?q=90&crop=false");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-position: center;
+    margin: 0; 
+    height: 100vh; 
+    width: 100vw; 
+}   
+
+.navi{
+    background-color: rgba(57, 65, 65, 0.518);
+}
+
+.drp{
+    background-color: rgba(57, 65, 65, 0.518);
+}
+
+.book{ 
+    
+    margin-top:12vh; 
+    
+    
+    /* background-image: url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExODdueGdncXp2ajRnOGs2ejM4M3A5OTFvcmxnejVoamp2YjU3cXYxdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xBwvWcj1Z11Gda/giphy.webp"); */
 }
