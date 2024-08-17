@@ -30,9 +30,9 @@
       <tbody>
         <% customers.forEach(element => { %>
           <tr class="align-middle">
-            <td><%= element.firstName %></td>
-            <td><%= element.lastName %></td>
-            <td><%= element.email %></td>
+            <td class="fs-6 fw-medium"><%= element.firstName %></td>
+            <td class="fs-6 fw-medium"><%= element.lastName %></td>
+            <td class="fs-6 fw-medium"><%= element.email %></td>
             <td class="text-end">
   
               <div class="d-flex flex-row justify-content-end gap-2">
@@ -64,13 +64,13 @@
 
   
   <% if (customers.length > 0) { %>
-    <nav aria-label="Dashboard Pagination">
+    <nav aria-label="Dashboard Pagination" >
       <ul class="pagination justify-content-center mt-5">
   
         <% if (current == 1) { %>
-          <li class="page-item disabled"><a href="#" class="page-link">First</a></li>
+          <li class="page-item disabled "><a href="#" class="page-link text-light bg-dark">First</a></li>
         <% } else { %>
-          <li class="page-item"><a href="/?page=1" class="page-link">First</a></li>
+          <li class="page-item"><a href="/?page=1" class="page-link text-light bg-dark">First</a></li>
         <% } %>
   
         <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
@@ -80,9 +80,9 @@
   
         <% for(; i <= (Number(current) + 4) && i <= pages; i++ ) { %>
           <% if (i == current) { %>
-            <li class="page-item disabled"><a href="#" class="page-link"><%= i %></a></li>
+            <li class="page-item disabled"><a href="#" class="page-link text-light bg-dark"><%= i %></a></li>
           <% } else { %>
-            <li class="page-item"><a href="/?page=<%= i %>" class="page-link"><%= i %></a></li>
+            <li class="page-item"><a href="/?page=<%= i %>" class="page-link text-light bg-dark"><%= i %></a></li>
           <% } %>
           <% if (i == Number(current) + 4 && i < pages) { %>
             <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
@@ -90,9 +90,9 @@
         <% } %>
   
         <% if (current == pages) { %>
-          <li class="page-item disabled"><a href="#" class="page-link">Last</a></li>
+          <li class="page-item disabled"><a href="#" class="page-link text-light bg-dark">Last</a></li>
         <% } else { %>
-          <li class="page-item"><a href="/?page=<%= pages %>" class="page-link">Last</a></li>
+          <li class="page-item"><a href="/?page=<%= pages %>" class="page-link text-light bg-dark">Last</a></li>
         <% } %>
   
       </ul>

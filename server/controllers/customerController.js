@@ -91,7 +91,10 @@ exports.about = async (req, res) => {
   };
 
   try {
-    res.render("about", locals);
+    res.render("about", { 
+      layout: 'layouts/defaultLay', 
+      locals
+    });
   } catch (error) {
     console.log(error);
   }

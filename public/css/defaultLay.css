@@ -41,3 +41,12 @@ body{
     
 
 } */
+
+.studentSec{
+    color: #d9be24;
+    height: 35vh;
+    width: 40vw;
+    justify-content: center;
+    align-items: center;
+}
+
