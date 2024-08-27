@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const CustomerSchema = new Schema({
+const StudentSchema = new Schema({
   firstName: {
     type: String,
     required: true
@@ -34,4 +34,4 @@ const CustomerSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Customer', CustomerSchema);
+module.exports = mongoose.model('Student', StudentSchema);

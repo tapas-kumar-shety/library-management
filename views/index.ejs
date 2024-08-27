@@ -1,100 +1,81 @@
-
-  
-   <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <div class="w-100 text-center">
-                <h1 class="h2 "><a href="/">Dashboard</a></h1>
-     </div>
-        <div class="btn-toolbar mb-2 mb-md-0">
-     <div class="btn-group">
-             <a href="/add" class="btn btn-sm btn-outline-secondary">NewUser</a>
-    </div>
-   </div>
-    </div>
-
-
-    
-
-
-  <div class="table-responsive">
-
-    <table class="table table-hover  table-sm">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Email</th>
-          <th scope="col" class="text-end">Action</th>
-        </tr>
-      </thead>
-  
-      <tbody>
-        <% customers.forEach(element => { %>
-          <tr class="align-middle">
-            <td class="fs-6 fw-medium"><%= element.firstName %></td>
-            <td class="fs-6 fw-medium"><%= element.lastName %></td>
-            <td class="fs-6 fw-medium"><%= element.email %></td>
-            <td class="text-end">
-  
-              <div class="d-flex flex-row justify-content-end gap-2">
-  
-                <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
-                  <i class="bi bi-eye"></i>
-                </a>
-  
-                <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
-                  <i class="bi bi-pencil"></i>
-                </a>
-  
-                <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
-                  <button type="submit" class="btn btn-danger btn-small">
-                    <i class="bi bi-person-x"></i>
-                  </button>
-                </form>
-  
-              </div>
-  
-  
-            </td>
-          </tr>
-        <% }) %>
-      </tbody>
-    </table>
+<div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <div class="w-100 text-center">
+    <h1 class="h2"><a href="/">Dashboard</a></h1>
   </div>
-  
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group">
+      <a href="/add" class="btn btn-sm btn-outline-secondary">New Student</a>
+    </div>
+  </div>
+</div>
 
-  
-  <% if (customers.length > 0) { %>
-    <nav aria-label="Dashboard Pagination" >
-      <ul class="pagination justify-content-center mt-5">
-  
-        <% if (current == 1) { %>
-          <li class="page-item disabled "><a href="#" class="page-link text-light bg-dark">First</a></li>
+<div class="table-responsive">
+  <table class="table table-hover table-sm">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col" class="text-end">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach(element => { %>
+        <tr class="align-middle">
+          <td class="fs-6 fw-medium"><%= element.firstName %></td>
+          <td class="fs-6 fw-medium"><%= element.lastName %></td>
+          <td class="fs-6 fw-medium"><%= element.email %></td>
+          <td class="text-end">
+            <div class="d-flex flex-row justify-content-end gap-2">
+              <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
+                <i class="bi bi-eye"></i>
+              </a>
+              <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                <i class="bi bi-pencil"></i>
+              </a>
+              <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
+                <button type="submit" class="btn btn-danger btn-small">
+                  <i class="bi bi-person-x"></i>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<% if (students.length > 0) { %>
+  <nav aria-label="Dashboard Pagination">
+    <ul class="pagination justify-content-center mt-5">
+      <% if (current == 1) { %>
+        <li class="page-item disabled"><a href="#" class="page-link text-light bg-dark">First</a></li>
+      <% } else { %>
+        <li class="page-item"><a href="/?page=1" class="page-link text-light bg-dark">First</a></li>
+      <% } %>
+
+      <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+      <% if (i !== 1) { %>
+        <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+      <% } %>
+
+      <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+        <% if (i == current) { %>
+          <li class="page-item disabled"><a href="#" class="page-link text-light bg-dark"><%= i %></a></li>
         <% } else { %>
-          <li class="page-item"><a href="/?page=1" class="page-link text-light bg-dark">First</a></li>
+          <li class="page-item"><a href="/?page=<%= i %>" class="page-link text-light bg-dark"><%= i %></a></li>
         <% } %>
-  
-        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
-        <% if(i !== 1) { %>
+        <% if (i == Number(current) + 4 && i < pages) { %>
           <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
         <% } %>
-  
-        <% for(; i <= (Number(current) + 4) && i <= pages; i++ ) { %>
-          <% if (i == current) { %>
-            <li class="page-item disabled"><a href="#" class="page-link text-light bg-dark"><%= i %></a></li>
-          <% } else { %>
-            <li class="page-item"><a href="/?page=<%= i %>" class="page-link text-light bg-dark"><%= i %></a></li>
-          <% } %>
-          <% if (i == Number(current) + 4 && i < pages) { %>
-            <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
-          <% } %>
-        <% } %>
-  
-        <% if (current == pages) { %>
-          <li class="page-item disabled"><a href="#" class="page-link text-light bg-dark">Last</a></li>
-        <% } else { %>
-          <li class="page-item"><a href="/?page=<%= pages %>" class="page-link text-light bg-dark">Last</a></li>
-        <% } %>
-  
-      </ul>
-    </nav>
-  <% } %>
+      <% } %>
+
+      <% if (current == pages) { %>
+        <li class="page-item disabled"><a href="#" class="page-link text-light bg-dark">Last</a></li>
+      <% } else { %>
+        <li class="page-item"><a href="/?page=<%= pages %>" class="page-link text-light bg-dark">Last</a></li>
+      <% } %>
+    </ul>
+  </nav>
+<% } %>

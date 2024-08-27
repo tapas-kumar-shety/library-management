@@ -2,51 +2,31 @@
 body{
     
     background-color: #E0DED3;
-    background-image: url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNpb2VhYjlqaHFlZXFqZm9nN3N1OHZ5eHdrdmNwZGxhenBhaGN0bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cQ23bDqzbWbh240xQq/giphy.webp"); 
     background-size: contain; 
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-position: center;
     margin: 0; 
-    height: 100vh; 
-    width: 100vw; 
+    /* height: 100vh; 
+    width: 100vw;  */
 }   
 
-.navi{
-    background-color: rgba(57, 65, 65, 0.619);
-    
-}
 
-.drp{
-    background-color: rgba(57, 65, 65, 0.518);
-}
 
-.cent{
-    display: block;
-    margin-top: 8   vh;
-}
-
-/* .book{ 
-    height: 80vh; 
-    width: 50vw; 
-    display: block;
-     margin: auto;
-   background-image: url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTNpb2VhYjlqaHFlZXFqZm9nN3N1OHZ5eHdrdmNwZGxhenBhaGN0bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cQ23bDqzbWbh240xQq/giphy.webp"); 
-       background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment:scroll 
-    
-
-    
-
-} */
-
-.studentSec{
-    color: #d9be24;
-    height: 35vh;
-    width: 40vw;
+.landingTemp1 {
+    margin-top: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh; /* Takes the full viewport height */
 }
+
+.sliders {
+    width: 60vw;
+    max-width: 100%; /* Ensures it doesn't overflow the viewport */
+    margin: auto;
+}
+
+
+
 
