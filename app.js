@@ -43,6 +43,9 @@ app.set('view engine', 'ejs');
 // Routes
 app.use('/', require('./server/routes/student'))
 
+app.get('/login',(req,res)=>{
+    res.render('login')
+})
 // Handle 404
 app.get('*', (req, res) => {
     res.status(404).render('404');
