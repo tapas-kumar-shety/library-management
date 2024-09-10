@@ -27,5 +27,7 @@ body{
 }
 
 
-
-
+.bklink{
+   color: rgb(248, 247, 244);
+   text-decoration: none;
+}

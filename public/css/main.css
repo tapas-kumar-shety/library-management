@@ -15,6 +15,11 @@ body {
     
 }
 
+.rec{
+  color: black;
+  text-decoration:none;
+}
+
 .drp{
     background-color: rgba(57, 65, 65, 0.518);
 }
@@ -37,4 +42,8 @@ body {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
 
-  
+  .darrk{
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+  }

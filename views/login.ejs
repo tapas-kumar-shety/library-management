@@ -1,6 +1,5 @@
-
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,30 +7,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
   <style>
     :root{
-  --main-bg:#E0DED3;
-}
+      --main-bg:#E0DED3;
+    }
 
-.main-bg {
-  background: var(--main-bg) !important;
-}
+    .main-bg {
+      background: var(--main-bg) !important;
+    }
 
-input:focus, button:focus {
-  border: 1px solid var(--main-bg) !important;
-  box-shadow: none !important;
-}
+    input:focus, button:focus {
+      border: 1px solid var(--main-bg) !important;
+      box-shadow: none !important;
+    }
 
-.form-check-input:checked {
-  background-color: black;
-  border-color: var(--main-bg) !important;
-}
+    .form-check-input:checked {
+      background-color: black;
+      border-color: var(--main-bg) !important;
+    }
 
-.btn, input{
-  border-radius:0 !important;
-} 
-.card{
-  border-radius:3%;
-} 
-
+    .btn, input{
+      border-radius:0 !important;
+    } 
+    .card{
+      border-radius:3%;
+    } 
   </style>
 </head>
 
@@ -45,14 +43,22 @@ input:focus, button:focus {
             <h2 class="p-3">Login</h2>
           </div>
           <div class="card-body">
-            <form>
+            
+            <!-- Error Message Alert -->
+            <% if (errorMessage) { %>
+              <div class="alert alert-danger">
+                <%= errorMessage %>
+              </div>
+            <% } %>
+            
+            <form action="/login" method="post">
               <div class="mb-4">
-                <label for="username" class="form-label">Username/Email</label>
-                <input type="text" class="form-control" id="username" />
+                <label for="userName" class="form-label">Username</label>
+                <input type="text" name="userName" class="form-control" id="userName" />
               </div>
               <div class="mb-4">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" />
+                <input type="password" name="password" class="form-control" id="password" />
               </div>
               <div class="mb-4">
                 <input type="checkbox" class="form-check-input" id="remember" />
