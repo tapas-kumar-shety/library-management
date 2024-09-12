@@ -15,6 +15,16 @@ body {
     
 }
 
+.search{
+  border: solid black;
+  border-radius: 3%;
+  background-color: white;
+  margin-top: 2vh;
+}
+
+
+
+
 .rec{
   color: black;
   text-decoration:none;

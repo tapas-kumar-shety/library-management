@@ -4,15 +4,15 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const StudentSchema = new Schema({
-  firstName: {
+  Name: {
     type: String,
     required: true
   },
-  lastName: {
+  year: {
     type: String,
     required: true
   },
-  tel: {
+  reg: {
     type: String,
     required: true
   },

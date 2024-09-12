@@ -13,16 +13,13 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-// Static method to validate username and password
+
 userSchema.statics.findAndValidate = async function (userName, password) {
     const foundUser = await this.findOne({ userName });
     
-    // Check if the user was found
     if (!foundUser) {
-        return false;  // or throw a custom error if you prefer
+        return false;  
     }
-
-    // Compare provided password with hashed password
     const isMatch = await bcrypt.compare(password, foundUser.password);
     
     return isMatch ? foundUser : false;

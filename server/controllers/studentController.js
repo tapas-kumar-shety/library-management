@@ -2,7 +2,6 @@ const Student = require("../models/Student");  //// importing the schema from mo
 const mongoose = require("mongoose");
 
 // // get default page
-
 exports.default = async (req, res) => {
   const locals = {
     title: "Default Page",
@@ -21,11 +20,11 @@ exports.default = async (req, res) => {
  */
 exports.homepage = async (req, res) => {
   const locals = {
-    title: "NodeJs",
-    description: "Free NodeJs Student Management System",
+    title: "Library management system",
+    description: "Student Management System",
   };
 
-  let perPage = 6;
+  let perPage = 7;
   let page = req.query.page || 1;
 
   try {
@@ -46,6 +45,7 @@ exports.homepage = async (req, res) => {
     console.log(error);
   }
 };
+
 
 /**
  * GET /
@@ -73,7 +73,7 @@ exports.about = async (req, res) => {
  */
 exports.addStudent = async (req, res) => {
   const locals = {
-    title: "Add New Student - NodeJs",
+    title: "Add New Student",
     description: "Free NodeJs Student Management System",
   };
 
@@ -88,11 +88,12 @@ exports.postStudent = async (req, res) => {
   console.log(req.body);
 
   const newStudent = new Student({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    details: req.body.details,
-    tel: req.body.tel,
-    email: req.body.email,
+ 
+    Name: req.body.Name || "Unknown Name",        
+    year: req.body.year || "N/A",                 
+    details: req.body.details || "No details",    
+    reg: req.body.reg || "Not Registered",      
+    email: req.body.email || "noemail@example.com",
   });
 
   try {
@@ -113,7 +114,7 @@ exports.view = async (req, res) => {
 
     const locals = {
       title: "View Student Data",
-      description: "Free NodeJs Student Management System",
+      description: " library Management System",
     };
 
     res.render("student/view", {
@@ -135,7 +136,7 @@ exports.edit = async (req, res) => {
 
     const locals = {
       title: "Edit Student Data",
-      description: "Free NodeJs Student Management System",
+      description: " library Management System",
     };
 
     res.render("student/edit", {
@@ -154,9 +155,9 @@ exports.edit = async (req, res) => {
 exports.editPost = async (req, res) => {
   try {
     await Student.findByIdAndUpdate(req.params.id, {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      tel: req.body.tel,
+      Name: req.body.Name,
+      year: req.body.year,
+      reg: req.body.reg,
       email: req.body.email,
       details: req.body.details,
       updatedAt: Date.now(),
@@ -198,8 +199,8 @@ exports.searchStudents = async (req, res) => {
 
     const students = await Student.find({
       $or: [
-        { firstName: { $regex: new RegExp(searchNoSpecialChar, "i") } },
-        { lastName: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+        { Name: { $regex: new RegExp(searchNoSpecialChar, "i") } },
+        { year: { $regex: new RegExp(searchNoSpecialChar, "i") } },
       ],
     });
 
@@ -211,3 +212,4 @@ exports.searchStudents = async (req, res) => {
     console.log(error);
   }
 };
+

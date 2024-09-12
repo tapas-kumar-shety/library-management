@@ -4,13 +4,8 @@ const studentController = require('../controllers/studentController');
 const requirelogin = require('../../authMdlwr')
 
 
-/**
- *  Student Routes 
-*/
-
-
-
-router.get('/',studentController.default); // Default page route
+/**  Student Routes */
+router.get('/',studentController.default); 
 
 router.get('/dash', studentController.homepage);
 router.get('/about', studentController.about);

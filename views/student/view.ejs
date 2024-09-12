@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2"><%= student.firstName  %> <%= student.lastName %></h1>
+  <h1 class="h2"><%= student.Name  %></h1>
 </div>
 
 <div class="col py-3">
@@ -16,15 +16,15 @@
 <ul class="list-group">
   <li class="list-group-item"> 
       <div class="row">
-          <div class="col" style="max-width: 140px"> <b>Name:</b></div>
-          <div class="col"><%= student.firstName %> <%= student.lastName %></div>
+          <div class="col" style="max-width: 140px"> <b>Name & year:</b></div>
+          <div class="col"><%= student.Name %> <%= student.year %></div>
       </div>
   </li>
 
   <li class="list-group-item"> 
       <div class="row">
-          <div class="col" style="max-width: 140px"> <b>Tel:</b></div>
-          <div class="col"><%= student.tel %></div>
+          <div class="col" style="max-width: 140px"> <b>Registration no:</b></div>
+          <div class="col"><%= student.reg %></div>
       </div>
   </li>
 

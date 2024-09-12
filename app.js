@@ -8,10 +8,6 @@ const User  = require ('./server/models/user');
 const connectDB = require('./server/config/db');
 const bcrypt = require ('bcrypt')
 
-// const multer = require('multer');
-// const GridFsStorage = require('multer-gridfs-storage');
-// const Grid = require('gridfs-stream');
-// const pdfRoutes = require('./server/routes/pdfRoutes');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -19,7 +15,7 @@ const port = process.env.PORT || 5000;
 // Connect to Database  
 connectDB();
 
-app.use(express.urlencoded({ extended: true }));  // These two lines help to grab the data when a new student is added, etc.
+app.use(express.urlencoded({ extended: true }));  
 app.use(session({secret: 'nonrealistic'}))
 
 const requirelogin = require('./authMdlwr')
@@ -45,17 +41,17 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.use('/', require('./server/routes/student'))
-// app.use('/pdf', pdfRoutes);
+
 
 app.get('/login', (req, res) => {
-    const errorMessage = req.session.errorMessage || '';  // Retrieve the error message, if exists
-    req.session.errorMessage = null;  // Clear the message after showing it
+    const errorMessage = req.session.errorMessage || '';  
+    req.session.errorMessage = null;  
     res.render('login', { errorMessage });
 });
 
 
-app.get('/signup',requirelogin,(req,res)=>{
-    res.render('signup')
+app.get('/addAdmin',requirelogin,(req,res)=>{
+    res.render('addAdmin')
 })
 
 // Handle 404
@@ -80,7 +76,7 @@ app.post('/login', async (req, res) => {
 
 
  // signup post 
- app.post('/signup',async(req,res)=>{      
+ app.post('/addAdmin',async(req,res)=>{      
     const {userName,password} = req.body      
   const user = new User ({userName,password})
   await user.save()
@@ -91,10 +87,9 @@ app.post('/login', async (req, res) => {
 
 
 
- 
  app.get('/logout', (req, res) => {
-    req.session.destroy();  // Destroy the session
-    res.redirect('/');  // Redirect to the homepage after logout
+    req.session.destroy();  
+    res.redirect('/');  
 });
 
 //// LOGOUT POST
@@ -103,11 +98,6 @@ app.post('/logout', (req, res) => {
     res.redirect('/'); 
 });
 
-
-
-app.get('/pdf',(req,res)=>{
-   res.render('pdf')
-})
 
 
 app.listen(port, () => {
